@@ -1,0 +1,14 @@
+.panel ul li{
+    
+    display: inline-block;
+
+}
+.panel{
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px;
+    
+}
+.img-circle{
+    border-radius: 50%;
+}
