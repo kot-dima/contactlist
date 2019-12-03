@@ -12,3 +12,14 @@
 .img-circle{
     border-radius: 50%;
 }
+.btnrandom{
+    float: right;
+    padding: 3px;
+    position: relative;
+    bottom: 40px;
+}
+.border{
+    box-shadow: 10 10 10 black;
+    border: 5px silver;
+    
+}
