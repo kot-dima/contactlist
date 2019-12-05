@@ -10,7 +10,7 @@ class ContactItem extends React.Component {
         gender: this.props.gender,
         btnStatus: false,
         borderStatus: false,
-        starStatus:false
+        starStatus: this.props.starStatus
     }
     RandomAva = () => {
         const newAvatar = Math.floor(Math.random() * 100);
@@ -19,40 +19,44 @@ class ContactItem extends React.Component {
             btnStatus: !this.state.btnStatus,
         })
     }
-    RandomStar=()=>{
+    RandomStar = () => {
         this.setState({
             starStatus: !this.state.starStatus
         })
     }
 
-    onBorderShow=()=>{
+    onBorderShow = () => {
         this.setState({
-            borderStatus:true
+            borderStatus: true
         })
     }
 
-    offBorderShow=()=>{
+    offBorderShow = () => {
         this.setState({
-            borderStatus:false
+            borderStatus: false
         })
     }
 
+    
+    
     on
     render() {
         const { name, description, avatar, gender } = this.state;
         let URL = `https://randomuser.me/api/portraits/${gender}/${avatar}.jpg`;
         let btnStyle = "btnrandom btn btn-outline-primary true col-2 offset-4";
-        let BorderS="panel1";
-        let starStyle="<i class="fas fa-star"></i>"
+        let BorderS = "panel1";
+        let starStyle = "star1";
 
         if (this.state.btnStatus) {
             btnStyle = "btnrandom btn btn-outline-danger true col-2 offset-4";
         }
-        if (this.state.borderStatus){
-            BorderS="panel1 border"
+        if (this.state.borderStatus) {
+            BorderS = "panel1 border"
         }
         let divactive = "border col-sm-6 de-flex-center"
-        
+        if(this.state.starStatus){
+            starStyle='star2  panelStar'
+        }
         return (
             <div className="row">
                 <div className="col-sm-6 de-flex-center">
@@ -66,7 +70,9 @@ class ContactItem extends React.Component {
                                     <a href="#" className="btn btn-success tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Edit">
                                         <i className="fa fa-pencil"></i>
                                     </a>
-                                    <a href="#" className="btn btn-danger tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Delete">
+                                    <a href="#" className="btn btn-danger tooltips" data-placement="top" data-toggle="tooltip" 
+                                    data-original-title="Delete" onClick={this.props.onDelete}
+                                    >
                                         <i className="fa fa-close"></i>
                                     </a>
                                 </div>
@@ -94,7 +100,7 @@ class ContactItem extends React.Component {
                                     <a title="" data-placement="top" data-toggle="tooltip" className="tooltips" href="#" data-original-title="Message"><i className="fa fa-envelope-o"></i></a>
                                 </li>
                             </ul>
-                            <button className={starStyle} onClick={this.RandomStar}><i class="far fa-star"></i></button>
+                            <button className={starStyle} onClick={this.RandomStar}><i className="fa fa-star"></i></button>
                             <button className={btnStyle} onClick={this.RandomAva}>Random</button>
                         </div>
                     </div>

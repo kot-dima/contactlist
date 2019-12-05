@@ -1,11 +1,13 @@
 .panel1 ul li{
     display: inline-block;
 }
-.panel{
+.panel1{
     background-color: #fff;
     padding: 20px;
     margin: 20px;
-    
+}
+.panelStar{
+    background-color: rgb(255, 253, 145);
 }
 .img-circle{
     border-radius: 50%;
@@ -16,11 +18,14 @@
     position: relative;
     bottom: 40px;
 }
-.far{
+.star1{
     color: rgb(224, 219, 219);
 }
+.star2{
+    color:yellow;
+}
 .border{
-    border: solid 10px silver;
+    border: solid 20px silver;
 }
 .panel1:hover{
     transform: scale(1.02, 1.02);
