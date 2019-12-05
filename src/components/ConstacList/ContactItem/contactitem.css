@@ -1,7 +1,5 @@
-.panel ul li{
-    
+.panel1 ul li{
     display: inline-block;
-
 }
 .panel{
     background-color: #fff;
@@ -18,8 +16,12 @@
     position: relative;
     bottom: 40px;
 }
+.far{
+    color: rgb(224, 219, 219);
+}
 .border{
-    box-shadow: 10 10 10 black;
-    border: 5px silver;
-    
+    border: solid 10px silver;
+}
+.panel1:hover{
+    transform: scale(1.02, 1.02);
 }

@@ -9,39 +9,54 @@ class ContactItem extends React.Component {
         avatar: this.props.avatar,
         gender: this.props.gender,
         btnStatus: false,
-        divStyll:false,
-        off:false,
-        show:true
+        borderStatus: false,
+        starStatus:false
     }
     RandomAva = () => {
         const newAvatar = Math.floor(Math.random() * 100);
         this.setState({
             avatar: newAvatar,
             btnStatus: !this.state.btnStatus,
-            divStyle: true
+        })
+    }
+    RandomStar=()=>{
+        this.setState({
+            starStatus: !this.state.starStatus
         })
     }
 
+    onBorderShow=()=>{
+        this.setState({
+            borderStatus:true
+        })
+    }
+
+    offBorderShow=()=>{
+        this.setState({
+            borderStatus:false
+        })
+    }
+
+    on
     render() {
         const { name, description, avatar, gender } = this.state;
         let URL = `https://randomuser.me/api/portraits/${gender}/${avatar}.jpg`;
         let btnStyle = "btnrandom btn btn-outline-primary true col-2 offset-4";
+        let BorderS="panel1";
+        let starStyle="<i class="fas fa-star"></i>"
+
         if (this.state.btnStatus) {
             btnStyle = "btnrandom btn btn-outline-danger true col-2 offset-4";
         }
+        if (this.state.borderStatus){
+            BorderS="panel1 border"
+        }
         let divactive = "border col-sm-6 de-flex-center"
-        
-        onBorderOff=()=>{
-            this.state.off
-        }
-        onBorderShow=()=>{
-            this.state.show
-        }
         
         return (
             <div className="row">
                 <div className="col-sm-6 de-flex-center">
-                    <div className="panel">
+                    <div className={BorderS} onMouseEnter={this.onBorderShow} onMouseLeave={this.offBorderShow}>
                         <div className="panel-body p-t-10">
                             <div className="media-main">
                                 <a className="pull-left" href="#">
@@ -79,6 +94,7 @@ class ContactItem extends React.Component {
                                     <a title="" data-placement="top" data-toggle="tooltip" className="tooltips" href="#" data-original-title="Message"><i className="fa fa-envelope-o"></i></a>
                                 </li>
                             </ul>
+                            <button className={starStyle} onClick={this.RandomStar}><i class="far fa-star"></i></button>
                             <button className={btnStyle} onClick={this.RandomAva}>Random</button>
                         </div>
                     </div>
